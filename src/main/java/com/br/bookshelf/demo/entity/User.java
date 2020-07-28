@@ -1,4 +1,4 @@
-package com.br.bookshelf.demo.entities;
+package com.br.bookshelf.demo.entity;
 
 import java.util.UUID;
 
@@ -19,11 +19,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
+@Entity(name = "users")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User extends AbstractAuditingEntity {
 	
 	@Id
 	@GeneratedValue(generator = "uuid2")
@@ -31,12 +31,12 @@ public class User {
 	private UUID id;
 	
 	@NotNull
-	private String user;
+	private String username;
 	
 	@NotNull
 	private String password;
 	
-	@NotNull
+	@NotNull	
 	@Email
 	@Column(unique = true)
 	private String email;

@@ -1,4 +1,4 @@
-package com.br.bookshelf.demo.entities;
+package com.br.bookshelf.demo.entity;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class Book extends AbstractAuditingEntity {
 	
 	@Id
 	@GeneratedValue(generator = "uuid2")
