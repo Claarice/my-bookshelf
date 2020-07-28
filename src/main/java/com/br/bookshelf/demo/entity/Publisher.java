@@ -1,6 +1,5 @@
-package com.br.bookshelf.demo.entities;
+package com.br.bookshelf.demo.entity;
 
-import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -8,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReadingDate {
+public class Publisher extends AbstractAuditingEntity {
 	
 	@Id
 	@GeneratedValue(generator = "uuid2")
@@ -28,8 +28,7 @@ public class ReadingDate {
 	private UUID id;
 	
 	@NotNull
-	private Date start_date;
+	private String name;
 	
-	@NotNull
-	private Date finish_date;
+	private String country;
 }

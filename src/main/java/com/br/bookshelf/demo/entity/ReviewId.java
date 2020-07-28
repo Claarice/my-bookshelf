@@ -1,4 +1,6 @@
-package com.br.bookshelf.demo.entities;
+package com.br.bookshelf.demo.entity;
+
+import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewId {
+public class ReviewId implements Serializable {
 	@ManyToOne
 	private User user;
 	

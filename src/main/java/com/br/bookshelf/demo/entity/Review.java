@@ -1,4 +1,4 @@
-package com.br.bookshelf.demo.entities;
+package com.br.bookshelf.demo.entity;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Review {
+public class Review extends AbstractAuditingEntity {
 	
 	@EmbeddedId
 	private ReviewId id;
