@@ -32,9 +32,9 @@ public class Book extends AbstractAuditingEntity {
 	private UUID id;
 	
 	@NotNull
-	private int isbn13;
+	private Long isbn13;
 	
-	private int isbn10;
+	private Long isbn10;
 	
 	@NotNull
 	private String title;
