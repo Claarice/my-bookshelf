@@ -1,12 +1,13 @@
 package com.br.bookshelf.demo.repository;
 
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.br.bookshelf.demo.entity.Review;
-import com.br.bookshelf.demo.entity.ReviewId;
+import com.br.bookshelf.demo.entity.Author;
 
 @Repository
-public interface ReviewRepository extends JpaRepository<Review, ReviewId> {
-
+public interface AuthorRepository extends JpaRepository<Author, UUID> {
+	
 }

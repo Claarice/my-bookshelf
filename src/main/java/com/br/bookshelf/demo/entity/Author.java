@@ -1,5 +1,6 @@
 package com.br.bookshelf.demo.entity;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -7,13 +8,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
-
-import com.br.bookshelf.demo.enums.CategoryEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,43 +25,24 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book extends AbstractAuditingEntity {
+public class Author extends AbstractAuditingEntity {
 	
 	@Id
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	private UUID id;
-	
+		
 	@NotNull
-	private Long isbn13;
+	private String name;
 	
-	private Long isbn10;
-	
-	@NotNull
-	private String title;
+	@OneToOne
+	private User user;
 	
 	@OneToMany
-	private List<Author> author;
-
-	@ManyToOne
-	private Publisher publisher;
+	private List<Genre> genres;	
 	
-	@NotNull
-	private int edition;
+	private Date dateOfBirth;
 	
-	private String year;
-	
-	private CategoryEnum category;
-	
-	@NotNull
-	private int pageNumber;
-	
-	@NotNull
-	private String language;	
-	
-	@OneToMany
-	private List<Genre> genre;
-	
-	@Column(length = 3000)
-	private String synopsis;
-}
+	@Column(length = 2000)
+	private String bio;
+}	
