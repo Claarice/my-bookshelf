@@ -37,9 +37,9 @@ public class Author extends AbstractAuditingEntity {
 	
 	@OneToOne
 	private User user;
-	
+		
 	@OneToMany
-	private List<Genre> genres;	
+	private List<Genre> genre;	
 	
 	private Date dateOfBirth;
 	
