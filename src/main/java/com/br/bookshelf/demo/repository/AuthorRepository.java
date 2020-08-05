@@ -20,4 +20,11 @@ public interface AuthorRepository extends JpaRepository<Author, UUID> {
 			"WHERE G.name = :genre",
 			nativeQuery = true)	
 	List<Author> findByGenre(String genre);
+
+	@Query(value = "SELECT * FROM Author AS A " + 
+			"JOIN author_genre AS AG ON AG.author_id = A.id " +
+			"JOIN genre AS G on AG.genre_id = G.id " + 
+			"WHERE G.id = :genreId",
+			nativeQuery = true)	
+	List<Author> findByGenreId(UUID genreId);
 }

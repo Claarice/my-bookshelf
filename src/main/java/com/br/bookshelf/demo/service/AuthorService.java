@@ -24,4 +24,8 @@ public class AuthorService extends BaseService<AuthorRepository, Author, UUID> {
 	public List<Author> searchByGenre(String genre) {
 		return repository.findByGenre(genre);
 	}
+	
+	public List<Author> searchByGenreId(UUID genreId) {
+		return repository.findByGenreId(genreId);
+	}
 }
