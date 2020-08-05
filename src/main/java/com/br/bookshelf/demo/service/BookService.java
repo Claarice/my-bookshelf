@@ -41,7 +41,15 @@ public class BookService extends BaseService<BookRepository, Book, UUID> {
 		return repository.findByGenre(genre);
 	}
 	
+	public List<Book> searchByGenreId(UUID genreId) {
+		return repository.findByGenreId(genreId);
+	}
+	
 	public List<Book> searchByPublisher(String publisher) {
 		return repository.findByPublisherNameContainingIgnoreCase(publisher);
+	}
+	
+	public List<Book> searchByPublisherId(UUID id) {
+		return repository.findByPublisherId(id);
 	}
 }

@@ -40,5 +40,14 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
 			nativeQuery = true)
 	List<Book> findByGenre(String genre);
 	
+	@Query(value = "SELECT * FROM book AS B " +
+			"JOIN book_genre AS BG ON BG.book_id = B.id " +
+			"JOIN genre AS G ON BG.genre_id = G.id " +
+			"WHERE G.id = :genreId",
+			nativeQuery = true)
+	List<Book> findByGenreId(UUID genreId);
+	
 	List<Book> findByPublisherNameContainingIgnoreCase(String publisher);
+	
+	List<Book> findByPublisherId(UUID id);
  }
