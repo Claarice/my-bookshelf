@@ -15,7 +15,7 @@ public interface AuthorRepository extends JpaRepository<Author, UUID> {
 	List<Author> findByNameContainingIgnoreCase(String name);
 	
 	@Query(value = "SELECT * FROM Author AS A " + 
-			"JOIN author_genre AS AG JOIN AG.author_id = A.id " +
+			"JOIN author_genre AS AG ON AG.author_id = A.id " +
 			"JOIN genre AS G on AG.genre_id = G.id " + 
 			"WHERE G.name = :genre",
 			nativeQuery = true)	
