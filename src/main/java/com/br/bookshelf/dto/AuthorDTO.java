@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
+import com.br.bookshelf.dto.interfaces.DTOEntity;
 import com.br.bookshelf.entity.Genre;
 import com.br.bookshelf.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AuthorDTO {
+public class AuthorDTO implements DTOEntity {
 	
 	private UUID id;
 	
