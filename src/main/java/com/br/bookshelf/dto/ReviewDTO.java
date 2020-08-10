@@ -7,6 +7,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.br.bookshelf.dto.interfaces.DTOEntity;
 import com.br.bookshelf.entity.ReadingDate;
 import com.br.bookshelf.entity.ReviewId;
 import com.br.bookshelf.enums.RatingEnum;
@@ -22,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReviewDTO {
+public class ReviewDTO implements DTOEntity {
 
 	@NotNull
 	private UUID userId;

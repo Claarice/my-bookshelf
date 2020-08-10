@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 
+import com.br.bookshelf.dto.interfaces.DTOEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenreDTO {
+public class GenreDTO implements DTOEntity {
 	
 	private UUID id;
 	

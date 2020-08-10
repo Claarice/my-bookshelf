@@ -2,11 +2,9 @@ package com.br.bookshelf.mappers.interfaces;
 
 import org.mapstruct.Mapper;
 
-import com.br.bookshelf.dto.interfaces.DTOEntity;
-
-public interface EntityMapper<E> {
+public interface EntityMapper<E, DTO> {
 	
-	DTOEntity toDTO(E entity);
+	DTO toDTO(E entity);	
 	
-	E toEntity(DTOEntity dto);
+	E toEntity(DTO dto);
 }

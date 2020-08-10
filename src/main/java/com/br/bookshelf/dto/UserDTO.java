@@ -5,6 +5,7 @@ import java.util.UUID;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import com.br.bookshelf.dto.interfaces.DTOEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserDTO {
+public class UserDTO implements DTOEntity {
 	
 	private UUID id;
 	

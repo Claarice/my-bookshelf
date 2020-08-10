@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.br.bookshelf.dto.interfaces.DTOEntity;
 import com.br.bookshelf.entity.Author;
 import com.br.bookshelf.entity.Genre;
 import com.br.bookshelf.entity.Publisher;
@@ -26,7 +27,7 @@ import lombok.Getter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BookDTO {
+public class BookDTO implements DTOEntity {
 	
 	private UUID id;
 	
