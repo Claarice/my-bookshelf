@@ -28,9 +28,9 @@ public class AuthorDTO {
 	@NotNull
 	private String name;
 	
-	private User user;
+	private UUID userId;
 	
-	private List<Genre> genre;
+	private List<UUID> genreIds;
 	
 	private Date dateOfBirth;
 	

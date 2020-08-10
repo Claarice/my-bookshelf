@@ -37,12 +37,12 @@ public class BookDTO {
 	
 	@NotNull
 	private String title;
+
+	@NotNull
+	private List<UUID> authorIds;
 	
-	@OneToMany
-	private List<Author> author;
-	
-	@ManyToOne
-	private Publisher publisher;
+	@NotNull
+	private UUID publisherId;
 	
 	@NotNull
 	private int edition;
@@ -56,9 +56,8 @@ public class BookDTO {
 	
 	@NotNull
 	private String language;
-	
-	@OneToMany
-	private List<Genre> genre;
+
+	private List<UUID> genreIds;
 	
 	@Column(length = 3000)
 	private String synopsis;

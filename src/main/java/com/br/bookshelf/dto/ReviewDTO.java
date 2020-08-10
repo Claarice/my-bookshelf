@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 import com.br.bookshelf.entity.ReadingDate;
 import com.br.bookshelf.entity.ReviewId;
@@ -22,9 +23,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReviewDTO {
+
+	@NotNull
+	private UUID userId;
 	
-	@EmbeddedId
-	private ReviewId id;
+	@NotNull
+	private UUID bookId;
 	
 	private String title;
 	
@@ -32,8 +36,7 @@ public class ReviewDTO {
 	
 	private String description;
 	
-	@OneToMany
-	private List<ReadingDate> readingDates;
+	private List<UUID> readingDateIds;
 	
 	private boolean read;
 }

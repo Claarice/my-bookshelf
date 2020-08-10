@@ -23,7 +23,7 @@ public class UserDTO {
 	private UUID id;
 	
 	@NotNull
-	private String username;
+	private String name;
 	
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
