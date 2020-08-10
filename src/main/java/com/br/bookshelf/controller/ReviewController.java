@@ -1,6 +1,11 @@
 package com.br.bookshelf.controller;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +21,15 @@ public class ReviewController extends BaseController<ReviewService, ReviewReposi
 	@Autowired
 	public ReviewController(ReviewService service) {
 		super(service);
+	}
+	
+	@GetMapping("/user/{userId}")
+	public List<Review> findByUser(@PathVariable UUID userId) {
+		return service.findByUser(userId);
+	}
+	
+	@GetMapping("/book/{bookId}")
+	public List<Review> findByBook(@PathVariable UUID bookId) {
+		return service.findByBook(bookId);
 	}
 }

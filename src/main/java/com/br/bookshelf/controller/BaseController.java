@@ -58,4 +58,10 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	public void delete(ID id) {
 		service.deleteById(id);
 	}	
+	
+	@PostMapping("/saveAndFlush")
+	@ResponseStatus(HttpStatus.OK)
+	public E saveAndFlush(@RequestBody E entity) {
+		return service.saveAndFlush(entity);
+	}
 }

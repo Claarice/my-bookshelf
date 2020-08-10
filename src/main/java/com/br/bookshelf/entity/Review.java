@@ -5,6 +5,10 @@ import java.util.List;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.Transient;
+
+import org.springframework.data.domain.Persistable;
 
 import com.br.bookshelf.enums.RatingEnum;
 
@@ -33,4 +37,21 @@ public class Review extends AbstractAuditingEntity {
 	private List<ReadingDate> readingDates;
 	
 	private boolean read;
+	
+	@Transient
+	private Book book;
+	
+	@Transient
+	private User user;
+
+	@PrePersist
+	private void prePersist() {
+		if (this.getId() == null) {
+			ReviewId reviewId = new ReviewId();
+			reviewId.setBook(this.getBook());
+			reviewId.setUser(this.getUser());
+			this.setId(reviewId);
+		}
+	}
+	
 }

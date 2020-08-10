@@ -39,6 +39,9 @@ public abstract class BaseService<R extends JpaRepository<E, ID>, E, ID> {
 		repository.deleteById(id);
 	}
 	
+	public E saveAndFlush(E entity) {
+		return repository.saveAndFlush(entity);
+	}
 	
 	
 	

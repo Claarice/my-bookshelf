@@ -31,7 +31,7 @@ public class User extends AbstractAuditingEntity {
 	private UUID id;
 	
 	@NotNull
-	private String username;
+	private String name;
 	
 	@NotNull
 	private String password;
