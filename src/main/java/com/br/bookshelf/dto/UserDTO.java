@@ -1,5 +1,6 @@
 package com.br.bookshelf.dto;
 
+import java.util.Date;
 import java.util.UUID;
 
 import javax.validation.constraints.Email;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserDTO implements DTOEntity {
+public class UserDTO {
 	
 	private UUID id;
 	
@@ -33,7 +34,7 @@ public class UserDTO implements DTOEntity {
 	@NotNull
 	private String email;
 	
-	private String createdAt;
+	private Date createdAt;
 	
-	private String updatedAt;
+	private Date updatedAt;
 }

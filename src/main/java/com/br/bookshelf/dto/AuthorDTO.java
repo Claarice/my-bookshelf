@@ -13,6 +13,7 @@ import com.br.bookshelf.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,11 +23,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AuthorDTO implements DTOEntity {
+public class AuthorDTO {
 	
 	private UUID id;
 	
-	@NotNull
+	@NotNull	
 	private String name;
 	
 	private UUID userId;
