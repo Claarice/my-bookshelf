@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 
 public interface EntityMapper<E, DTO> {
 	
-	DTO toDTO(E entity);	
+	DTO toDTO(E source);	
 	
-	E toEntity(DTO dto);
+	E toEntity(DTO source);
 }

@@ -9,7 +9,7 @@ import com.br.bookshelf.mappers.interfaces.EntityMapper;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper extends EntityMapper<User, UserDTO> {
-	
+
 	UserDTO toDTO(User source);
 	
 	User toEntity(UserDTO source);

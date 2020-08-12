@@ -20,7 +20,10 @@ import com.br.bookshelf.service.UserService;
 @RequestMapping("/user")
 public class UserController extends BaseController<UserService, UserRepository, User, UUID> {
 	
+	@Autowired
 	private UserMapper mapper;
+	
+	UserDTO dto = new UserDTO();
 	
 	@Autowired
 	public UserController(UserService service) {
