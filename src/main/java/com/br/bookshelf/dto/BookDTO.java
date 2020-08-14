@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ import com.br.bookshelf.entity.Author;
 import com.br.bookshelf.entity.Genre;
 import com.br.bookshelf.entity.Publisher;
 import com.br.bookshelf.enums.CategoryEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -62,4 +64,10 @@ public class BookDTO implements DTOEntity {
 	
 	@Column(length = 3000)
 	private String synopsis;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
+    private Date createdAt;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
+    private Date updatedAt;	
 }

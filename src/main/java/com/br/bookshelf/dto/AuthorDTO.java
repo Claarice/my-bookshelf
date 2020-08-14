@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import com.br.bookshelf.dto.interfaces.DTOEntity;
 import com.br.bookshelf.entity.Genre;
 import com.br.bookshelf.entity.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -39,4 +40,9 @@ public class AuthorDTO {
 	@Column(length = 2000)
 	private String bio;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
+    private Date createdAt;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
+    private Date updatedAt;	
 }

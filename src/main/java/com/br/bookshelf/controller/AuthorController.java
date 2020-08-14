@@ -10,17 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.bookshelf.dto.AuthorDTO;
 import com.br.bookshelf.entity.Author;
+import com.br.bookshelf.mappers.AuthorMapper;
 import com.br.bookshelf.repository.AuthorRepository;
 import com.br.bookshelf.service.AuthorService;
 
 @RestController
 @RequestMapping("/author")
-public class AuthorController extends BaseController<AuthorService, AuthorRepository, Author, UUID> {
+public class AuthorController extends BaseController<AuthorService, AuthorRepository, Author, UUID, AuthorMapper, AuthorDTO> {
 	
-	@Autowired
-	public AuthorController(AuthorService service) {
-		super(service);
+	@Autowired	
+	public AuthorController(AuthorService service, AuthorMapper mapper) {
+		super(service, mapper);	
 	}
 	
 	@GetMapping("/searchByName")

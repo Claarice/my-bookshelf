@@ -3,6 +3,7 @@ package com.br.bookshelf.controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,14 +15,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.bookshelf.mappers.interfaces.EntityMapper;
 import com.br.bookshelf.service.BaseService;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public abstract class BaseController<S extends BaseService<R, E, ID>, R extends JpaRepository<E, ID>, E, ID> {
-	
+public abstract class BaseController<S extends BaseService<R, E, ID>, R extends JpaRepository<E, ID>, E, ID, M extends EntityMapper<E, DTO>, DTO> {
+		
 	protected S service;
+	
+	protected M mapper;
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
@@ -31,20 +35,22 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
-	public E save(@RequestBody E entity) {
-		return service.save(entity);
+	public DTO save(@RequestBody DTO dto) {
+		E entity = mapper.toEntity(dto);
+		return mapper.toDTO(service.save(entity));
 	}
 	
 	@GetMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public E getById(@PathVariable ID id) {
-		return service.findById(id);
+	public DTO getById(@PathVariable ID id) {
+		return mapper.toDTO(service.findById(id));
 	}
 	
 	@PutMapping
 	@ResponseStatus(HttpStatus.OK)
-	public E update(@RequestBody E entity) {
-		return service.update(entity);
+	public DTO update(@RequestBody DTO dto) {
+		E entity = mapper.toEntity(dto);
+		return mapper.toDTO(service.update(entity));
 	}
 	
 	@PostMapping("/saveAll")
@@ -61,7 +67,8 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	
 	@PostMapping("/saveAndFlush")
 	@ResponseStatus(HttpStatus.OK)
-	public E saveAndFlush(@RequestBody E entity) {
-		return service.saveAndFlush(entity);
+	public DTO saveAndFlush(@RequestBody DTO dto) {
+		E entity = mapper.toEntity(dto);
+		return mapper.toDTO(service.saveAndFlush(entity));
 	}
 }

@@ -18,16 +18,11 @@ import com.br.bookshelf.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-public class UserController extends BaseController<UserService, UserRepository, User, UUID> {
+public class UserController extends BaseController<UserService, UserRepository, User, UUID, UserMapper, UserDTO> {
 	
 	@Autowired
-	private UserMapper mapper;
-	
-	UserDTO dto = new UserDTO();
-	
-	@Autowired
-	public UserController(UserService service) {
-		super(service);
+	public UserController(UserService service, UserMapper mapper) {
+		super(service, mapper);
 	}
 		
 	@GetMapping("/teste/{id}")

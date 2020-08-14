@@ -1,10 +1,12 @@
 package com.br.bookshelf.dto;
 
+import java.util.Date;
 import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 
 import com.br.bookshelf.dto.interfaces.DTOEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -23,4 +25,10 @@ public class GenreDTO implements DTOEntity {
 	
 	@NotNull
 	private String name;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
+    private Date createdAt;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
+    private Date updatedAt;	
 }

@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.bookshelf.dto.BookDTO;
 import com.br.bookshelf.entity.Book;
+import com.br.bookshelf.mappers.BookMapper;
 import com.br.bookshelf.repository.BookRepository;
 import com.br.bookshelf.service.BookService;
 
 @RestController
 @RequestMapping("/book")
-public class BookController extends BaseController<BookService, BookRepository, Book, UUID> {
+public class BookController extends BaseController<BookService, BookRepository, Book, UUID, BookMapper, BookDTO> {
 	
 	@Autowired
-	public BookController(BookService service) {
-		super(service);
+	public BookController(BookService service, BookMapper mapper) {
+		super(service, mapper);
 	}
 	
 	@GetMapping("/searchByIsbn10")

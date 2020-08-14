@@ -34,9 +34,9 @@ public class UserDTO {
 	@NotNull
 	private String email;
 
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Sao_Paulo")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
     private Date createdAt;
 
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Sao_Paulo")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
     private Date updatedAt;	
 }
