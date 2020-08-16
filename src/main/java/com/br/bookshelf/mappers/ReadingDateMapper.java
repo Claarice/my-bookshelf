@@ -1,8 +1,12 @@
 package com.br.bookshelf.mappers;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
+import com.br.bookshelf.dto.PublisherDTO;
 import com.br.bookshelf.dto.ReadingDateDTO;
+import com.br.bookshelf.entity.Publisher;
 import com.br.bookshelf.entity.ReadingDate;
 import com.br.bookshelf.mappers.interfaces.EntityMapper;
 
@@ -12,4 +16,8 @@ public interface ReadingDateMapper extends EntityMapper<ReadingDate, ReadingDate
 	ReadingDateDTO toDTO(ReadingDate entity);
 	
 	ReadingDate toEntity(ReadingDateDTO dto);
+
+	List<ReadingDateDTO> toDTO(List<ReadingDate> source);
+	
+	List<ReadingDate> toEntity(List<ReadingDateDTO> source);
 }

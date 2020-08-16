@@ -1,5 +1,7 @@
 package com.br.bookshelf.mappers;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -17,4 +19,8 @@ public interface AuthorMapper extends EntityMapper<Author, AuthorDTO> {
 		
 	@Mapping(source = "userId", target = "user.id")
 	Author toEntity(AuthorDTO source);
+	
+	List<AuthorDTO> toDTO(List<Author> source);
+	
+	List<Author> toEntity(List<AuthorDTO> source);
 }

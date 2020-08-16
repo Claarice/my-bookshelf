@@ -26,17 +26,17 @@ public class AuthorController extends BaseController<AuthorService, AuthorReposi
 	}
 	
 	@GetMapping("/searchByName")
-	public List<Author> searchByName(@RequestParam String name) {
-		return service.searchByName(name);
+	public List<AuthorDTO> searchByName(@RequestParam String name) {
+		return mapper.toDTO(service.searchByName(name));
 	}
 	
 	@GetMapping("/searchByGenre")
-	public List<Author> searchByGenre(@RequestParam String genre) {
-		return service.searchByGenre(genre);
+	public List<AuthorDTO> searchByGenre(@RequestParam String genre) {
+		return mapper.toDTO(service.searchByGenre(genre));
 	}
 	
 	@GetMapping("/searchByGenre/{id}")
-	public List<Author> searchByGenreId(@PathVariable UUID genreId) {
-		return service.searchByGenreId(genreId);
+	public List<AuthorDTO> searchByGenreId(@PathVariable UUID genreId) {
+		return mapper.toDTO(service.searchByGenreId(genreId));
 	}
 }

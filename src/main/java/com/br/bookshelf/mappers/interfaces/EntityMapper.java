@@ -10,7 +10,7 @@ public interface EntityMapper<E, DTO> {
 	
 	E toEntity(DTO source);
 	
-	List<DTO> toListDTO(List<E> source);
+	List<DTO> toDTO(List<E> source);
 	
-	List<E> toListEntity(List<DTO> source);
+	List<E> toEntity(List<DTO> source);
 }

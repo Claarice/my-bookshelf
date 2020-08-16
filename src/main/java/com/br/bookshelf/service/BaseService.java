@@ -1,6 +1,7 @@
 package com.br.bookshelf.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -19,7 +20,11 @@ public abstract class BaseService<R extends JpaRepository<E, ID>, E, ID> {
 		return repository.saveAll(entities);
 	}
 	
-	public E update(E entity) {
+	public E update(ID id, E entity) throws IllegalAccessException {
+		if (!repository.findById(id).isPresent()) {
+			throw new IllegalAccessException();
+		}
+		
 		return repository.save(entity);
 	}
 	

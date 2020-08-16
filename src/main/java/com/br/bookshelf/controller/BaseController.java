@@ -29,8 +29,8 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<E> findAll() {
-		return service.findAll();
+	public List<DTO> findAll() {
+		return mapper.toDTO(service.findAll());
 	}
 	
 	@PostMapping
@@ -46,17 +46,18 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 		return mapper.toDTO(service.findById(id));
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public DTO update(@RequestBody DTO dto) {
+	public DTO update(@PathVariable ID id, @RequestBody DTO dto) throws IllegalAccessException {
 		E entity = mapper.toEntity(dto);
-		return mapper.toDTO(service.update(entity));
+		return mapper.toDTO(service.update(id, entity));
 	}
 	
 	@PostMapping("/saveAll")
 	@ResponseStatus(HttpStatus.OK)
-	public List<E> saveAll(@RequestBody List<E> entities) {
-		return service.saveAll(entities);
+	public List<DTO> saveAll(@RequestBody List<DTO> dto) {
+		List<E> entities = mapper.toEntity(dto);
+		return mapper.toDTO(service.saveAll(entities));
 	}
 	
 	@DeleteMapping

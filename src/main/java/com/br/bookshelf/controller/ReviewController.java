@@ -26,12 +26,12 @@ public class ReviewController extends BaseController<ReviewService, ReviewReposi
 	}
 	
 	@GetMapping("/user/{userId}")
-	public List<Review> findByUser(@PathVariable UUID userId) {
-		return service.findByUser(userId);
+	public List<ReviewDTO> findByUser(@PathVariable UUID userId) {
+		return mapper.toDTO(service.findByUser(userId));
 	}
 	
 	@GetMapping("/book/{bookId}")
-	public List<Review> findByBook(@PathVariable UUID bookId) {
-		return service.findByBook(bookId);
+	public List<ReviewDTO> findByBook(@PathVariable UUID bookId) {
+		return mapper.toDTO(service.findByBook(bookId));
 	}
 }
