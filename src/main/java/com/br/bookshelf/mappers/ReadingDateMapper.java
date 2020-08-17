@@ -17,7 +17,7 @@ public interface ReadingDateMapper extends EntityMapper<ReadingDate, ReadingDate
 	
 	ReadingDate toEntity(ReadingDateDTO dto);
 
-	List<ReadingDateDTO> toDTO(List<ReadingDate> source);
+	List<ReadingDateDTO> toListDTO(List<ReadingDate> source);
 	
-	List<ReadingDate> toEntity(List<ReadingDateDTO> source);
+	List<ReadingDate> toListEntity(List<ReadingDateDTO> source);
 }

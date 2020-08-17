@@ -30,7 +30,7 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<DTO> findAll() {
-		return mapper.toDTO(service.findAll());
+		return mapper.toListDTO(service.findAll());
 	}
 	
 	@PostMapping
@@ -56,8 +56,8 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	@PostMapping("/saveAll")
 	@ResponseStatus(HttpStatus.OK)
 	public List<DTO> saveAll(@RequestBody List<DTO> dto) {
-		List<E> entities = mapper.toEntity(dto);
-		return mapper.toDTO(service.saveAll(entities));
+		List<E> entities = mapper.toListEntity(dto);
+		return mapper.toListDTO(service.saveAll(entities));
 	}
 	
 	@DeleteMapping

@@ -18,7 +18,7 @@ public interface UserMapper extends EntityMapper<User, UserDTO> {
 	
 	User toEntity(UserDTO source);
 
-	List<UserDTO> toDTO(List<User> source);
+	List<UserDTO> toListDTO(List<User> source);
 	
-	List<User> toEntity(List<UserDTO> source);	
+	List<User> toListEntity(List<UserDTO> source);	
 }

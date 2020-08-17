@@ -17,7 +17,7 @@ public interface PublisherMapper extends EntityMapper<Publisher, PublisherDTO> {
 	
 	Publisher toEntity(PublisherDTO dto);
 
-	List<PublisherDTO> toDTO(List<Publisher> source);
+	List<PublisherDTO> toListDTO(List<Publisher> source);
 	
-	List<Publisher> toEntity(List<PublisherDTO> source);
+	List<Publisher> toListEntity(List<PublisherDTO> source);
 }

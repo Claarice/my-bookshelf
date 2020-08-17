@@ -17,7 +17,7 @@ public interface GenreMapper extends EntityMapper<Genre, GenreDTO> {
 	
 	Genre toEntity(GenreDTO dto);
 
-	List<GenreDTO> toDTO(List<Genre> source);
+	List<GenreDTO> toListDTO(List<Genre> source);
 	
-	List<Genre> toEntity(List<GenreDTO> source);
+	List<Genre> toListEntity(List<GenreDTO> source);
 }

@@ -11,16 +11,14 @@ import com.br.bookshelf.mappers.interfaces.EntityMapper;
 import com.br.bookshelf.service.GenreService;
 import com.br.bookshelf.service.UserService;
 
-@Mapper(componentModel = "spring", uses = {UserService.class, GenreService.class})
+@Mapper(componentModel = "spring")
 public interface AuthorMapper extends EntityMapper<Author, AuthorDTO> {
 	
-	@Mapping(source = "user.id", target = "userId")
 	AuthorDTO toDTO(Author source);
 		
-	@Mapping(source = "userId", target = "user.id")
+	List<AuthorDTO> toListDTO(List<Author> source);
+		
 	Author toEntity(AuthorDTO source);
 	
-	List<AuthorDTO> toDTO(List<Author> source);
-	
-	List<Author> toEntity(List<AuthorDTO> source);
+	List<Author> toListEntity(List<AuthorDTO> source);	
 }

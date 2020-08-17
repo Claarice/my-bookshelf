@@ -42,10 +42,10 @@ public class BookDTO implements DTOEntity {
 	private String title;
 
 	@NotNull
-	private List<UUID> authorIds;
+	private List<Author> author;
 	
 	@NotNull
-	private UUID publisherId;
+	private Publisher publisher;
 	
 	@NotNull
 	private int edition;
@@ -60,7 +60,7 @@ public class BookDTO implements DTOEntity {
 	@NotNull
 	private String language;
 
-	private List<UUID> genreIds;
+	private List<Genre> genre;
 	
 	@Column(length = 3000)
 	private String synopsis;

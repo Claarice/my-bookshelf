@@ -33,8 +33,9 @@ public class AuthorDTO {
 	
 	private UUID userId;
 	
-	private List<UUID> genreIds;
+	private List<Genre> genre;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;
 	
 	@Column(length = 2000)

@@ -17,7 +17,7 @@ public interface ReviewMapper extends EntityMapper<Review, ReviewDTO> {
 	
 	Review toEntity(ReviewDTO dto);
 
-	List<ReviewDTO> toDTO(List<Review> source);
+	List<ReviewDTO> toListDTO(List<Review> source);
 	
-	List<Review> toEntity(List<ReviewDTO> source);
+	List<Review> toListEntity(List<ReviewDTO> source);
 }
