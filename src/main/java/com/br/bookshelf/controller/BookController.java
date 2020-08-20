@@ -19,7 +19,7 @@ import com.br.bookshelf.repository.BookRepository;
 import com.br.bookshelf.service.BookService;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/book")	
 public class BookController extends BaseController<BookService, BookRepository, Book, UUID, BookMapper, BookDTO> {
 	
 	@Autowired

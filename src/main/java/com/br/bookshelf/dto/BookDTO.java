@@ -20,6 +20,9 @@ import com.br.bookshelf.entity.Publisher;
 import com.br.bookshelf.enums.CategoryEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,9 +43,10 @@ public class BookDTO implements DTOEntity {
 	
 	@NotNull
 	private String title;
+	
 
 	@NotNull
-	private List<Author> author;
+	private List<Author> authors;
 	
 	@NotNull
 	private Publisher publisher;
@@ -60,7 +64,7 @@ public class BookDTO implements DTOEntity {
 	@NotNull
 	private String language;
 
-	private List<Genre> genre;
+	private List<Genre> genres;
 	
 	@Column(length = 3000)
 	private String synopsis;

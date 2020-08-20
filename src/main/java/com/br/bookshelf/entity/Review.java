@@ -1,5 +1,7 @@
 package com.br.bookshelf.entity;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EmbeddedId;
@@ -33,8 +35,9 @@ public class Review extends AbstractAuditingEntity {
 	
 	private String description;
 	
-	@OneToMany
-	private List<ReadingDate> readingDates;
+	private LocalDateTime startDate;
+	
+	private LocalDateTime endDate;
 	
 	private boolean read;
 	

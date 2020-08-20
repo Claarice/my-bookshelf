@@ -1,5 +1,6 @@
 package com.br.bookshelf.dto;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -9,7 +10,6 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import com.br.bookshelf.dto.interfaces.DTOEntity;
-import com.br.bookshelf.entity.ReadingDate;
 import com.br.bookshelf.entity.ReviewId;
 import com.br.bookshelf.enums.RatingEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -39,7 +39,7 @@ public class ReviewDTO implements DTOEntity {
 	
 	private String description;
 	
-	private List<UUID> readingDateIds;
+	private List<LocalDateTime> readingDate;
 	
 	private boolean read;
 

@@ -31,22 +31,4 @@ public class GenreController extends BaseController<GenreService, GenreRepositor
 		super(service, mapper);
 	}
 	
-	@PostMapping(value = { "/teste", "/teste/{authorId}"})
-	public Genre teste(@PathVariable Optional<UUID> authorId, @RequestBody Genre genre) {
-		Genre genreSaved = service.save(genre);
-		
-		if (authorId.isPresent()) {
-			Author author = authorService.findById(authorId.get());
-			
-			List<Genre> genres = author.getGenre();
-		
-			genres.add(genreSaved);
-		
-			author.setGenre(genres);
-		
-			authorService.save(author);
-		}
-		
-		return genreSaved;
-	}
 }

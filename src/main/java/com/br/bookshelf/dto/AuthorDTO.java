@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 import com.br.bookshelf.dto.interfaces.DTOEntity;
+import com.br.bookshelf.entity.Book;
 import com.br.bookshelf.entity.Genre;
 import com.br.bookshelf.entity.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -32,8 +34,8 @@ public class AuthorDTO {
 	private String name;
 	
 	private UUID userId;
-	
-	private List<Genre> genre;
+
+	private List<Genre> genres;	
 	
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;

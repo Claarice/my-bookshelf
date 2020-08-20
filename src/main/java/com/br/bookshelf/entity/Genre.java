@@ -1,10 +1,12 @@
 package com.br.bookshelf.entity;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -28,4 +30,10 @@ public class Genre extends AbstractAuditingEntity {
 	
 	@NonNull
 	public String name;
+	
+	@ManyToMany
+	private List<Author> authors;
+	
+	@ManyToMany
+	private List<Book> books;
 }

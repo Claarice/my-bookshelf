@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -40,8 +41,8 @@ public class Book extends AbstractAuditingEntity {
 	@NotNull
 	private String title;
 	
-	@OneToMany
-	private List<Author> author;
+	@ManyToMany
+	private List<Author> authors;
 
 	@ManyToOne
 	private Publisher publisher;
@@ -59,8 +60,8 @@ public class Book extends AbstractAuditingEntity {
 	@NotNull
 	private String language;	
 	
-	@OneToMany
-	private List<Genre> genre;
+	@ManyToMany
+	private List<Genre> genres;
 	
 	@Column(length = 3000)
 	private String synopsis;

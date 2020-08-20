@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.br.bookshelf.dto.ReadingDateDTO;
 import com.br.bookshelf.dto.ReviewDTO;
-import com.br.bookshelf.entity.ReadingDate;
 import com.br.bookshelf.entity.Review;
 import com.br.bookshelf.mappers.interfaces.EntityMapper;
 

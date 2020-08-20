@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -14,8 +16,6 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
-
-import com.br.bookshelf.dto.AuthorDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,11 +40,14 @@ public class Author extends AbstractAuditingEntity {
 	@OneToOne
 	private User user;
 		
-	@OneToMany
-	private List<Genre> genre;	
+	@ManyToMany
+	private List<Genre> genres;	
 	
 	private Date dateOfBirth;
 	
 	@Column(length = 2000)
 	private String bio;
+	
+	@ManyToMany
+	private List<Book> books;
 }	
