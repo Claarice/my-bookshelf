@@ -29,9 +29,9 @@ public abstract class BaseController<S extends BaseService<R, E, ID>, R extends 
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<E> findAll() {
-		return service.findAll();
-	}
+	public List<DTO> findAll() {
+		return mapper.toListDTO(service.findAll());
+	}	
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)

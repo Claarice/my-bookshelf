@@ -23,7 +23,7 @@ public class AuthorController extends BaseController<AuthorService, AuthorReposi
 	@Autowired	
 	public AuthorController(AuthorService service, AuthorMapper mapper) {
 		super(service, mapper);	
-	}
+	}		
 	
 	@GetMapping("/searchByName")
 	public List<AuthorDTO> searchByName(@RequestParam String name) {

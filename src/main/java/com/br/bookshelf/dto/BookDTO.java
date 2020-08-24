@@ -46,10 +46,10 @@ public class BookDTO implements DTOEntity {
 	
 
 	@NotNull
-	private List<Author> authors;
+	private List<RelatedAuthorDTO> authors;
 	
 	@NotNull
-	private Publisher publisher;
+	private RelatedPublisherDTO publisher;
 	
 	@NotNull
 	private int edition;
@@ -64,7 +64,7 @@ public class BookDTO implements DTOEntity {
 	@NotNull
 	private String language;
 
-	private List<Genre> genres;
+	private List<RelatedGenreDTO> genres;
 	
 	@Column(length = 3000)
 	private String synopsis;

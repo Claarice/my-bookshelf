@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
 
 import com.br.bookshelf.dto.interfaces.DTOEntity;
@@ -27,6 +28,8 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReviewDTO implements DTOEntity {
 
+	private ReviewId id;
+	
 	@NotNull
 	private UUID userId;
 	
@@ -38,8 +41,10 @@ public class ReviewDTO implements DTOEntity {
 	private RatingEnum rating;
 	
 	private String description;
+
+	private LocalDateTime startDate;
 	
-	private List<LocalDateTime> readingDate;
+	private LocalDateTime endDate;
 	
 	private boolean read;
 
@@ -47,5 +52,6 @@ public class ReviewDTO implements DTOEntity {
     private Date createdAt;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ssZ")
-    private Date updatedAt;	
+    private Date updatedAt;
+	
 }
